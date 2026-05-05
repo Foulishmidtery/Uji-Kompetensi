@@ -1,0 +1,18 @@
+{
+  "name": "ujikom",
+  "version": "1.0.0",
+  "description": "Aplikasi web full-stack untuk mengelola inventaris barang, peminjaman, dan pelaporan secara efisien.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "concurrently -n \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm --prefix server run test\" \"npm --prefix client run test:all\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

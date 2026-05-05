@@ -1,14 +1,23 @@
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
-import { HiOutlineSun, HiOutlineMoon, HiOutlineDesktopComputer } from 'react-icons/hi';
+import { HiOutlineSun, HiOutlineMoon, HiOutlineDesktopComputer, HiOutlineMenu } from 'react-icons/hi';
 
 const Navbar = ({ title }) => {
   const { user } = useAuth();
   const { mode, setMode } = useTheme();
 
+  const toggleMobileSidebar = () => {
+    document.body.classList.toggle('mobile-sidebar-open');
+  };
+
   return (
     <header className="navbar">
-      <div className="navbar-title">{title}</div>
+      <div className="navbar-left" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <button className="mobile-menu-btn" onClick={toggleMobileSidebar} title="Menu">
+          <HiOutlineMenu />
+        </button>
+        <div className="navbar-title">{title}</div>
+      </div>
       <div className="navbar-right">
         <div className="theme-toggle" title={`Mode: ${mode}`}>
           <button

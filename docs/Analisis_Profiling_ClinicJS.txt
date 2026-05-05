@@ -1,0 +1,23 @@
+ANALISIS PERFORMA SERVER (CLINIC.JS DOCTOR)
+====================================================================
+
+Pengujian performa (profiling) dilakukan menggunakan Clinic.js Doctor yang dikombinasikan dengan load testing menggunakan Autocannon pada endpoint API. Berdasarkan hasil metrik yang dihasilkan dari grafik, berikut adalah analisis kesehatan server:
+
+1. Memory Usage (Penggunaan Memori)
+Grafik "Heap Used" menunjukkan pola "gigi gergaji" (sawtooth pattern) yang sangat sehat dan konsisten. Memori naik secara wajar saat menerima banyak request (beban), lalu langsung turun drastis secara berkala. Hal ini membuktikan bahwa mekanisme Garbage Collection (GC) pada Node.js bekerja dengan sangat optimal dan tidak ditemukan indikasi kebocoran memori (Memory Leak).
+
+2. CPU Usage (Penggunaan Prosesor)
+Grafik CPU menunjukkan adanya lonjakan (spikes) saat load testing berjalan, yang mana sangat normal karena server sedang bekerja keras memproses ratusan request per detik. Tidak ada grafik yang mendatar di posisi atas (100% konstan), membuktikan bahwa server tidak mengalami CPU Bottleneck atau kebuntuan proses logika.
+
+3. Event Loop Delay (Keterlambatan Event Loop)
+Keterlambatan maksimal hanya mencapai kisaran ~40ms pada puncak beban tertinggi. Angka ini sangat wajar untuk aplikasi Node.js saat berada di bawah tekanan (stress test). Hal ini mengindikasikan bahwa tidak ada fungsi synchronous yang memblokir (blocking) sistem secara parah, sehingga server tetap responsif melayani request berikutnya.
+
+4. Active Handles (Koneksi Aktif)
+Grafik "Active Handles" menunjukkan garis yang datar dan stabil di angka ~13 selama load test berlangsung. Ini menandakan bahwa manajemen koneksi (baik itu HTTP requests dari klien maupun koneksi ke database MongoDB) dikelola dengan baik. Tidak ada koneksi yang menggantung (hanging/zombie connections) yang tertinggal setelah request selesai.
+
+5. Indikasi "Potential I/O Issue"
+Sistem mendeteksi peringatan potential I/O issue di bagian atas laporan. Dalam arsitektur aplikasi backend yang terhubung dengan database, ini adalah hal yang wajar dan normal. Peringatan ini sekadar memberitahukan bahwa batas maksimal (limit) kecepatan server saat ini ditentukan oleh antrean operasi Input/Output (waktu tunggu membaca/menulis ke database atau jaringan klien), bukan karena kode program lambat atau memberatkan CPU (CPU-bound). Ini membuktikan bahwa arsitektur asinkron (asynchronous) Node.js telah diimplementasikan dengan benar.
+
+KESIMPULAN
+====================================================================
+Secara keseluruhan, arsitektur server InvenTrack berada dalam kondisi yang sangat stabil, efisien dalam manajemen pengosongan memori, dan sangat siap untuk menangani beban konkurensi (skala besar) di lingkungan production.

@@ -96,7 +96,7 @@ const InventoryPage = () => {
               <h1>Inventaris Barang</h1>
               <p>Kelola semua barang inventaris kantor</p>
             </div>
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div className="header-actions">
               <button className="btn btn-ghost" onClick={handleExportPDF} title="Ekspor halaman ini ke PDF"><LuFileDown style={{ color: '#ef4444' }} /> Ekspor PDF</button>
               <button className="btn btn-ghost" onClick={handleExportExcel} title="Ekspor halaman ini ke Excel"><LuFileSpreadsheet style={{ color: '#10b981' }} /> Ekspor Excel</button>
               {canEdit && <button className="btn btn-primary" onClick={openAdd}><HiOutlinePlus /> Tambah Barang</button>}

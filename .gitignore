@@ -41,7 +41,24 @@ isolate-*.log
 server/isolate-*.log
 
 # ================================
-# OS Generated Files
+# Profiling & Diagnostics (Clinic.js)
+# ================================
+.clinic/
+*.clinic-doctor/
+*.clinic-doctor.html
+*.clinic-flame/
+*.clinic-flame.html
+*.clinic-bubble/
+*.clinic-bubble.html
+server/*.clinic-doctor/
+server/*.clinic-doctor.html
+server/*.clinic-flame/
+server/*.clinic-flame.html
+server/*.clinic-bubble/
+server/*.clinic-bubble.html
+
+# ================================
+# OS Generated & Temp Files
 # ================================
 .DS_Store
 .DS_Store?
@@ -51,6 +68,8 @@ server/isolate-*.log
 ehthumbs.db
 Thumbs.db
 desktop.ini
+~$*
+~*.tmp
 
 # ================================
 # Editor / IDE

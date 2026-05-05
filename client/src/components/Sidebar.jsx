@@ -30,8 +30,14 @@ const Sidebar = () => {
   const filteredNav = navItems.filter(item => item.roles.includes(user?.role));
   const initials = user?.name?.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || '?';
 
+  const closeMobileSidebar = () => {
+    document.body.classList.remove('mobile-sidebar-open');
+  };
+
   return (
-    <aside className="sidebar">
+    <>
+      <div className="mobile-overlay" onClick={closeMobileSidebar}></div>
+      <aside className="sidebar">
       <div className="sidebar-logo">
         <div className="logo-icon">IT</div>
         <h2>InvenTrack</h2>
@@ -46,7 +52,7 @@ const Sidebar = () => {
 
       <nav className="sidebar-nav">
         {filteredNav.map(item => (
-          <NavLink key={item.path} to={item.path} end={item.path === '/'} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink key={item.path} to={item.path} end={item.path === '/'} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} onClick={closeMobileSidebar}>
             <span className="nav-icon">{item.icon}</span>
             <span className="nav-text">{item.label}</span>
           </NavLink>
@@ -59,11 +65,12 @@ const Sidebar = () => {
           <div className="user-name">{user?.name}</div>
           <div className="user-role">{user?.role}</div>
         </div>
-        <button className="logout-btn" onClick={logout} title="Logout">
+        <button className="logout-btn" onClick={() => { closeMobileSidebar(); logout(); }} title="Logout">
           <HiOutlineLogout />
         </button>
       </div>
     </aside>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 
 /**
@@ -22,7 +22,7 @@ export const exportToPDF = (title, columns, data, filename) => {
   doc.text(`Tanggal Cetak: ${new Date().toLocaleString('id-ID')}`, 14, 30);
 
   // Generate Table
-  doc.autoTable({
+  autoTable(doc, {
     startY: 36,
     head: [columns],
     body: data,
