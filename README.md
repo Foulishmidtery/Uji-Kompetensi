@@ -521,7 +521,8 @@ Setelah menjalankan seeder, gunakan akun berikut untuk login:
 ![Reports](image-4.png)
 
 ### Users
-![Users](image-5.png)
+![Users 1](image-5.png)
+![Users 2](image-13.png)
 
 ---
 
