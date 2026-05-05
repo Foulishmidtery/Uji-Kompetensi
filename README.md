@@ -498,23 +498,25 @@ Setelah menjalankan seeder, gunakan akun berikut untuk login:
 
 > 💡 Tambahkan screenshot aplikasi Anda di sini setelah menjalankan aplikasi.
 
-```
-screenshots/
-├── login.png
-![alt text](image.png)
-├── dashboard.png
-![alt text](image-1.png)
-![alt text](image-6.png)
-![alt text](image-7.png)
-├── inventory.png
-![alt text](image-2.png)
-├── borrowing.png
-![alt text](image-3.png)
-├── reports.png
-![alt text](image-4.png)
-└── users.png
-![alt text](image-5.png)
-```
+### Login
+![Login](image.png)
+
+### Dashboard
+![Dashboard 1](image-1.png)
+![Dashboard 2](image-6.png)
+![Dashboard 3](image-7.png)
+
+### Inventory
+![Inventory](image-2.png)
+
+### Borrowing
+![Borrowing](image-3.png)
+
+### Reports
+![Reports](image-4.png)
+
+### Users
+![Users](image-5.png)
 
 ---
 
