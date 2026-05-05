@@ -505,12 +505,17 @@ Setelah menjalankan seeder, gunakan akun berikut untuk login:
 ![Dashboard 1](image-1.png)
 ![Dashboard 2](image-6.png)
 ![Dashboard 3](image-7.png)
+![Dashboard 4](image-12.png)
 
 ### Inventory
-![Inventory](image-2.png)
+![Inventory 1](image-2.png)
+![Inventory 2](image-9.png)
+![Inventory 3](image-10.png)
+![Inventory 4](image-11.png)
 
 ### Borrowing
-![Borrowing](image-3.png)
+![Borrowing 1](image-3.png)
+![Borrowing 2](image-8.png)
 
 ### Reports
 ![Reports](image-4.png)
